@@ -1,0 +1,47 @@
+{
+  "employees": [
+    {
+      "name": "Gokul",
+      "password": "1",
+      "type": "Employee",
+      "id": 1,
+      "leaveBalance": 5
+    },
+    {
+      "name": "Manager",
+      "password": "2",
+      "type": "Manager",
+      "id": 2,
+      "leaveBalance": 5
+    }
+  ],
+  "leaveDetails": [
+    {
+      "empId": 1,
+      "leaveStartDate": "2024-02-12T00:00:00.000Z",
+      "leaveEndDate": "2024-02-14T00:00:00.000Z",
+      "noOfDays": 2,
+      "reason": "Reason",
+      "status": "APPROVED",
+      "id": 1
+    },
+    {
+      "empId": 1,
+      "leaveStartDate": "2024-02-12T00:00:00.000Z",
+      "leaveEndDate": "2024-02-14T00:00:00.000Z",
+      "noOfDays": 2,
+      "reason": "Reason",
+      "status": "APPROVED",
+      "id": 2
+    },
+    {
+      "empId": 1,
+      "leaveStartDate": "2024-02-21T00:00:00.000Z",
+      "leaveEndDate": "2024-02-23T00:00:00.000Z",
+      "noOfDays": 2,
+      "reason": "asdasdasd",
+      "status": "DENIED",
+      "id": 3
+    }
+  ]
+}
