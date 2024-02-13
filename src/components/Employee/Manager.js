@@ -43,7 +43,14 @@ function Manager(props) {
       {allAppliedLeave.length > 0 ? (
         <p style={{ color: "red" }}>
           You have leaves to Approve{" "}
-          {!approveLeaves && <button onClick={btnHandler}> Click here</button>}
+          {!approveLeaves && (
+            <div>
+              <button className="btn btn-secondary" onClick={btnHandler}>
+                {" "}
+                Click here
+              </button>
+            </div>
+          )}
         </p>
       ) : (
         <p style={{ color: "red" }}>You have approved all leaves </p>

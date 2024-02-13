@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllAppliedLeave, getAllLeaveDetails1 } from "../../service/API";
+import { getAllLeaveDetails1 } from "../../service/API";
 import { useNavigate } from "react-router-dom";
 
 function Employee(props) {

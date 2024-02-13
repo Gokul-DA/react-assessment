@@ -26,13 +26,22 @@ export const getEmployeeById = (id, setEmployee) => {
     });
 };
 
+export const updateLeaveCount = (updateLeave) => {
+  crudAPI
+    .put("/employees/" + updateLeave.id, updateLeave)
+    .then((res) =>
+      console.log("Updated the leave balance for ", updateLeave.id)
+    )
+    .catch((err) => console.log("Error while updating leave balance: ", err));
+};
+
 export const applyForLeave = (leaveRequest) => {
   crudAPI.post("/leaveDetails", leaveRequest);
 };
 
 export const getAllLeaveDetails = async () => {
   const response = await crudAPI.get("/leaveDetails");
-  console.log("leave details: ", response.data);
+  console.log("all leave details: ", response.data);
   return response.data;
 };
 
@@ -43,14 +52,14 @@ export const getAllAppliedLeave = (setAppliedLeave) => {
     );
     setAppliedLeave(appliedLeave);
   });
-  console.log("leave details: ", response.data);
+  console.log("leave applied details: ", response.data);
 };
 
 export const getAllLeaveDetails1 = (setAppliedLeave) => {
   const response = crudAPI.get("/leaveDetails").then((res) => {
     setAppliedLeave(res.data);
   });
-  console.log("leave details: ", response.data);
+  console.log("leave details 1: ", response.data);
 };
 
 export const updateLeaveStatus = (leaveObject) => {

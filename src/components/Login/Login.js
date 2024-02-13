@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { useEffect, useDispatch } from "react";
-import { getEmployeeById, getEmployeeDetails } from "../../service/API";
+import { useEffect } from "react";
+import { getEmployeeById } from "../../service/API";
 
 function Login(props) {
-  const [employee, setEmployee] = useState();
-  const [isEmpValid, setisEmpValid] = useState(Boolean);
-
+  const [employee, setEmployee] = useState([]);
+  const [password, setPassword] = useState();
   const submitHandler = (event) => {
     event.preventDefault();
     let userId = event.target.userId.value;
-    let password = event.target.password.value;
+    setPassword(event.target.password.value);
     getEmployeeById(userId, setEmployee);
   };
 
@@ -19,29 +18,39 @@ function Login(props) {
   }, [employee]);
 
   const setEmpDataAndRedirect = () => {
-    if (employee != undefined) {
-      props.setEmployee(employee);
-      props.navigate("/dashboard");
-      console.log("navigated");
-    }
+    if (password !== undefined)
+      if (password === employee.password) {
+        props.setEmployee(employee);
+        props.navigate("/dashboard");
+        console.log("navigated");
+      }
   };
 
   return (
     <div>
-      <h1>Login Page</h1>
+      <h1 className="display-1">Login Page</h1>
       <form onSubmit={submitHandler}>
-        <label id="userIdLabel" htmlFor="userId">
-          Employee Id:
-        </label>
-        <input type="text" id="userId" />
-        <br></br>
-        <label id="passwordLabel" htmlFor="password">
-          Password
-        </label>
-        <input type="password" id="password" />
-
-        <br />
-        <button type="submit">Login</button>
+        <div className="form-group">
+          <label
+            className="label label-default"
+            id="userIdLabel"
+            htmlFor="userId"
+          >
+            Employee Id:
+          </label>
+          <input className="form-control" type="text" id="userId" />
+        </div>
+        <div className="form-group">
+          <label id="passwordLabel" htmlFor="password">
+            Password
+          </label>
+          <input className="form-control" type="password" id="password" />
+        </div>
+        <div className="form-group">
+          <button className="btn btn-primary" type="submit">
+            Login
+          </button>
+        </div>
       </form>
     </div>
   );

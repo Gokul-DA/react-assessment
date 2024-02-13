@@ -1,18 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LeaveForm from "./LeaveForm";
-import { applyForLeave, getAllLeaveDetails } from "../../service/API";
+import {
+  applyForLeave,
+  getAllLeaveDetails,
+  getEmployeeById,
+  updateLeaveCount,
+} from "../../service/API";
 
 function LeaveManagement(props) {
   const [showLeaveForm, setShowLeaveForm] = useState(false);
+  const [employee, setEmployee] = useState();
+  const [leaveRequest, setLeaveRequest] = useState([]);
 
   const applyLeaveBtnHandler = () => {
     setShowLeaveForm(true);
   };
 
   const applyLeave = (leaveRequest) => {
-    console.log("Leave REquest:", leaveRequest);
+    console.log("inside management apply leave");
+    console.log("Leave Request:", leaveRequest);
+    getEmployeeById(leaveRequest.empId, setEmployee);
     applyForLeave(leaveRequest);
+    // setLeaveRequest(leaveRequest);
   };
+
+  useEffect(() => {
+    console.log("inside useEffect");
+    if (employee !== undefined) {
+      console.log("Triggerd update count");
+      let updateLeaveBalance = [...employee];
+      updateLeaveBalance.leaveBalance =
+        employee.leaveBalance - leaveRequest.noOfDays;
+      console.log("updateLeaveBalance: ", updateLeaveBalance);
+      updateLeaveCount(updateLeaveBalance);
+    }
+  }, [employee]);
 
   let emp = props.employee;
   return (

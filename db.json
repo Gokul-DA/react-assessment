@@ -17,31 +17,40 @@
   ],
   "leaveDetails": [
     {
-      "empId": 1,
+      "empId": 2,
       "leaveStartDate": "2024-02-12T00:00:00.000Z",
       "leaveEndDate": "2024-02-14T00:00:00.000Z",
       "noOfDays": 2,
       "reason": "Reason",
-      "status": "APPROVED",
+      "status": "APPLIED",
       "id": 1
     },
     {
       "empId": 1,
-      "leaveStartDate": "2024-02-12T00:00:00.000Z",
+      "leaveStartDate": "2024-02-13T00:00:00.000Z",
       "leaveEndDate": "2024-02-14T00:00:00.000Z",
-      "noOfDays": 2,
-      "reason": "Reason",
-      "status": "APPROVED",
+      "noOfDays": 1,
+      "reason": "asdads",
+      "status": "APPLIED",
       "id": 2
     },
     {
       "empId": 1,
-      "leaveStartDate": "2024-02-21T00:00:00.000Z",
-      "leaveEndDate": "2024-02-23T00:00:00.000Z",
-      "noOfDays": 2,
-      "reason": "asdasdasd",
-      "status": "DENIED",
+      "leaveStartDate": "2024-02-14T00:00:00.000Z",
+      "leaveEndDate": "2024-02-15T00:00:00.000Z",
+      "noOfDays": 1,
+      "reason": "asdas",
+      "status": "APPLIED",
       "id": 3
+    },
+    {
+      "empId": 1,
+      "leaveStartDate": "2024-02-14T00:00:00.000Z",
+      "leaveEndDate": "2024-02-15T00:00:00.000Z",
+      "noOfDays": 1,
+      "reason": "123123",
+      "status": "APPLIED",
+      "id": 4
     }
   ]
 }
